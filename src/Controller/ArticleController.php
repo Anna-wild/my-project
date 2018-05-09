@@ -9,16 +9,24 @@
 namespace App\Controller;
 
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class ArticleController
 {
     /**
      * @Route("/")
      */
-public function homepage()
+public function homepage ()
 {
-    return new Request("this is my first page");
+    return new Response("first");
+}
+
+    /**
+     * @Route("/news/{slug}")
+     */
+public function site($slug)
+{
+ return new Response(sprintf("hello %s",$slug));
 }
 }
